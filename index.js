@@ -10,7 +10,8 @@ morgan.token('body', (request) => JSON.stringify(request.body))
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
 
 app.use(cors())
-app.use(express.static('dist'))
+const path = require('path')
+app.use(express.static(path.join(__dirname, 'dist')))
 
 let persons = [
   { 
